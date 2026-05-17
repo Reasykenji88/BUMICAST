@@ -1,0 +1,44 @@
+name: Sync Issues & PRs to Notion
+
+on:
+  issues:
+    types: [opened, edited, closed, reopened, assigned, unassigned, labeled, unlabeled]
+  pull_request:
+    types: [opened, edited, closed, reopened, assigned, unassigned, labeled, unlabeled, ready_for_review]
+
+  # Manual trigger — useful for the first-time backfill of existing issues.
+  workflow_dispatch:
+    inputs:
+      backfill:
+        description: 'Backfill all open issues & PRs (true/false)'
+        required: false
+        default: 'false'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: read
+      pull-requests: read
+      contents: read
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Notion SDK
+        run: npm install @notionhq/client@^2.2.15
+
+      - name: Sync to Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BACKFILL: ${{ github.event.inputs.backfill }}
+        run: node .github/scripts/notion-sync.js
