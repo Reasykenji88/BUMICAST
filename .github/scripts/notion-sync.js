@@ -30,8 +30,8 @@ const notion = new Client({ auth: NOTION_TOKEN });
 // Anyone not in the map will be set to "Unassigned".
 const USER_MAP = {
   // 'github-handle': 'Notion Name',
-  // 'dannyariff':    'Danny',
-  // 'carol-uthm':    'Carol',
+  'reasykenji88':    'Danny',
+  'carolleow2567-svg':    'Carol',
   // 'dania-uthm':    'Dania',
   // 'aisyah-uthm':   'Aisyah',
   // 'naz-uthm':      'Naz',
