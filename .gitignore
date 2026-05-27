@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Python
 __pycache__/
 *.pyc
@@ -24,3 +25,14 @@ Thumbs.db
 
 # Compiled Arduino
 hardware/esp32/build/
+=======
+*.nc
+*.csv
+*.h5
+*.pkl
+*.joblib
+venv/
+__pycache__/
+*.pyc
+.env
+>>>>>>> feature/carol-ai-clean

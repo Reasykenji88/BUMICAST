@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌊 BumiCast
 
 **Crop-stage aware saltwater intrusion forecasting for ASEAN river estuaries.**
@@ -36,3 +37,11 @@ bumicast/
 - **Frontend**: Streamlit
 - **Hardware**: ESP32, DS18B20, TDS sensor, Ultrasonic sensor
 - **Data**: NASA PODAAC, ERA5 Reanalysis, Mekong River Commission
+=======
+# AI Module - Carol's Zone
+This folder contains the AI forecasting models and data pipelines.
+
+- `data/` — Raw and processed datasets
+- `notebooks/` — Jupyter notebooks for exploration and training
+- `models/` — Saved model files (.h5, .pkl)
+>>>>>>> feature/carol-ai-clean
