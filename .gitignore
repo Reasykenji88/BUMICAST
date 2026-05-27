@@ -1,0 +1,9 @@
+*.nc
+*.csv
+*.h5
+*.pkl
+*.joblib
+venv/
+__pycache__/
+*.pyc
+.env
